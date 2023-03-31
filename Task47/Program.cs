@@ -14,6 +14,7 @@ Console.Write("Введите количество строк массива: ")
 int rows = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите количество столбцов массива: ");
 int columns = Convert.ToInt32(Console.ReadLine());
+
 void PrintArray(double[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
