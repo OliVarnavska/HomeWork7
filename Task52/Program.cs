@@ -37,21 +37,32 @@ void FillArray(int[,] matr)
     }
 }
 
-// void AverageValue( int[,] mas)
-// {
-//    for (int i = 0; i < matr.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < matr.GetLength(1); j++)
-//         {
-//             if (j)
-            
-//         }
-//     }
-// } 
-// }
+
+
+double [] AverageValueColumns (int [,] matr)
+{
+    double [] avgcolumns = new double [matr.GetLength(1)];
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+      for (int j = 0; j < matr.GetLength(1); j++)
+      {
+        avgcolumns[i] += Convert.ToDouble(matr[i, j]);
+      }  
+    } 
+    for (int i = 0; i < avgcolumns.Length; i++)
+    {
+       avgcolumns[i] /= matr.GetLength(0);
+    } 
+    return avgcolumns;
+}
+
 
 int[,] matrix = new int[rows, columns];
 FillArray(matrix);
 Console.WriteLine();
 PrintArray(matrix);
+AverageValueColumns(matrix);
+
+
+
 
