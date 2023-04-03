@@ -16,9 +16,9 @@ int columns = Convert.ToInt32(Console.ReadLine());
 
 void PrintArray(int[,] matr)
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
+    for (int j = 0; j < matr.GetLength(1); j++)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
+        for (int i = 0; i < matr.GetLength(0); i++)
         {
             Console.Write($"{matr[i, j]} ");
         }
@@ -28,14 +28,15 @@ void PrintArray(int[,] matr)
 
 void FillArray(int[,] matr)
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
+    for (int j = 0; j < matr.GetLength(1); j++)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
+        for (int i = 0; i < matr.GetLength(0); i++)
         {
             matr[i, j] = new Random().Next(1, 10);
         }
     }
 }
+
 
 int[,] matrix = new int[rows, columns];
 FillArray(matrix);
@@ -43,25 +44,21 @@ Console.WriteLine();
 PrintArray(matrix);
 Console.WriteLine();
 
-double[] avgcolumns = new double[columns];
-for (int i = 0; i < rows; i++)
+double[] avgcolumns = new double[rows];
+for (int j = 0; j < columns; j++)
 {
-    for (int j = 0; j < columns; j++)
+    for (int i = 0; i < rows; i++)
     {
         avgcolumns[i] += Convert.ToDouble(matrix[i, j]);
         
     }
-  
-    Console.WriteLine($" Сума чисел столбца {i}: {Math.Round(avgcolumns[i], 2)}");
-}
+  }
 
 for (int i = 0; i < avgcolumns.Length; i++)
 {
     avgcolumns[i] = avgcolumns[i] / columns;
     Console.WriteLine($" Среднее арифметическое столбца {i}: {Math.Round(avgcolumns[i], 2)}");
 }
-
-
 
 
 
